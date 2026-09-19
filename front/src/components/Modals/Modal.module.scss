@@ -1,0 +1,99 @@
+.item {
+  padding-left: 32px;
+  background: 0px 20px / 1rem no-repeat;
+
+  &:not(:last-child) {
+    margin-bottom: 24px;
+  }
+
+  &.small {
+    background-position: 0px;
+  }
+
+  &.title {
+    background-image: url("../../assets/title.svg");
+  }
+
+  &.colors {
+    background-image: url("../../assets/ic_outline-color-lens.svg");
+  }
+
+  &.buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  &.delete {
+    max-width: 500px;
+    padding: 0;
+  }
+
+  &.clock {
+    background-image: url("../../assets/clock.svg");
+  }
+
+  &.calendar {
+    background-image: url("../../assets/calendar.svg");
+  }
+
+  &.description {
+    background-image: url("../../assets/description.svg");
+  }
+}
+
+.dateAndTimeBlock {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+
+  .date {
+    position: relative;
+    width: 260px;
+  }
+
+  .currentDate {
+    width: 100%;
+  }
+
+  .datePickerBlock {
+    position: absolute;
+    z-index: 50;
+  }
+
+  .time {
+    display: grid;
+    grid-template-columns: 11fr 1fr 11fr;
+    gap: 8px;
+    width: 240px;
+
+    *:not(:first-child) {
+      align-self: end;
+    }
+
+    span {
+      height: 28px;
+    }
+  }
+
+  .repeat {
+    width: 250px;
+  }
+}
+
+.titleValue {
+  font: 400 1.5rem / 1 var(--main-font);
+}
+
+.calendarValue {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  
+  span {
+    width: 12px;
+    height: 12px;
+    border-radius: 4px;
+
+  }
+}

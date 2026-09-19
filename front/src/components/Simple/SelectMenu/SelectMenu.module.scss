@@ -1,0 +1,155 @@
+.wrapper {
+  position: relative;
+  width: 100%;
+  min-width: 60px;
+}
+
+.title {
+  color: var(--alt-text);
+  font: 700 0.625rem / 1.2 var(--main-font);
+}
+
+.selectedBlock {
+  width: 100%;
+  padding: 7px 0;
+  font: 400 0.9375rem / 1.3334 var(--main-font);
+  text-align: left;
+  background: url("../../../assets/chevron-down.svg") right / 1rem no-repeat;
+  border-bottom: 1px solid var(--alt-text);
+
+  &.disable {
+    color: var(--alt-text-disabled);
+    background: none;
+  }
+
+  &.haveColor {
+    padding-left: 24px;
+    position: relative;
+
+    .color {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translate(0, -50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+  }
+}
+
+.listWrapper {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s ease;
+  z-index: 50;
+
+  &.isOpen {
+    grid-template-rows: 1fr;
+
+    .listBlock {
+      border: 1px solid var(--alt-border);
+      box-shadow: 0px 8px 16px 0px var(--alt-box-shadow);
+    }
+  }
+}
+
+.listBlock {
+  max-height: calc(36px * 5);
+  min-height: 0px;
+  background-color: var(--alt);
+  border-radius: var(--rounded);
+  box-shadow: 0px 8px 16px 0px transparent;
+  transition: box-shadow 0.5s ease;
+  overflow-y: auto;
+
+  /* WebKit (Chrome, Safari, Opera) */
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--alt-border);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  &::-webkit-scrollbar-button {
+    display: none;
+  }
+
+  /* Firefox */
+  & {
+    scrollbar-width: thin;
+    scrollbar-color: var(--alt-border) transparent;
+    scrollbar-arrow-color: transparent;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--alt-border);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+
+  /* Internet Explorer */
+  & {
+    scrollbar-width: thin;
+  }
+
+  &::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: var(--alt-border);
+  }
+
+  &::-webkit-scrollbar-track {
+    background: none;
+  }
+}
+
+.listItem {
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--alt-text);
+  font: 400 0.9375rem / 1.3334 var(--main-font);
+  cursor: pointer;
+  transition: background-color 0.5s ease;
+
+  &.haveColor {
+    padding-left: 32px;
+    position: relative;
+
+    .color {
+      position: absolute;
+      top: 50%;
+      left: 8px;
+      transform: translate(0, -50%);
+      width: 12px;
+      height: 12px;
+      border-radius: 4px;
+    }
+  }
+
+  &:hover {
+    background-color: var(--alt-light);
+  }
+
+  &:active {
+    background-color: var(--alt-lightest);
+  }
+}

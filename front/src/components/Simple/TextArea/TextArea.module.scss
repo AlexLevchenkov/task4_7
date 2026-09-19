@@ -1,0 +1,21 @@
+.textAreaWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  color: var(--alt-text);
+
+  .label {
+    font: 700 0.625rem / 1.2 var(--main-font);
+  }
+
+  .textArea {
+    min-width: 100%;
+    height: max-content;
+    color: inherit;
+    border: none;
+    border-bottom: 1px solid var(--alt-text-disabled);
+    overflow-y: hidden;
+    outline: none;
+    resize: none;
+  }
+}

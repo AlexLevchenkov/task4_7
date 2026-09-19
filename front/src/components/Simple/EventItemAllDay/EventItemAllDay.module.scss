@@ -1,0 +1,13 @@
+.task {
+  width: 100%;
+  margin: 4px 0;
+  border-radius: calc(var(--rounded) / 2);
+  overflow: hidden;
+}
+
+.taskTitle {
+  padding: 8px;
+  font: 400 0.9375rem / 1.3333 var(--main-font);
+  text-align: left;
+  border-left: 4px solid currentColor;
+}

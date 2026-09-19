@@ -1,0 +1,57 @@
+datasource db {
+  provider = "mongodb"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+model User {
+  id           String        @id @map("_id")
+  login        String        @unique
+  passwordHash String
+  salt         String
+  
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  deleted_at   DateTime?
+
+  calendars    Calendars[]   @relation("CalendarOwner")
+  events       Events[]      @relation("EventOwner")
+}
+
+model Calendars {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  color        String
+  visible      Boolean
+
+  userId       String
+  user         User          @relation("CalendarOwner", fields: [userId], references: [id])
+
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  deleted_at   DateTime?
+  
+  events       Events[]      @relation("IdCalendar")
+}
+
+model Events {
+  id           String        @id @default(auto()) @map("_id") @db.ObjectId
+  title        String
+  date         String
+  repeat       String
+  time         String
+  description  String
+
+  userId       String
+  user         User          @relation("EventOwner", fields: [userId], references: [id])
+
+  calendarId   String
+  calendar     Calendars     @relation("IdCalendar", fields: [calendarId], references: [id])
+
+  created_at   DateTime      @default(now())
+  updated_at   DateTime      @updatedAt
+  deleted_at   DateTime?
+}

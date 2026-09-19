@@ -1,0 +1,44 @@
+.pickerWrapper {
+  .title {
+    margin-bottom: 4px;
+    color: var(--alt-text);
+    font: 700 0.625rem / 1.2 var(--main-font);
+  }
+
+  .pickerBlock {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 20px;
+    width: max-content;
+    padding: 7px;
+    border: 1px solid var(--alt-border);
+    border-radius: var(--rounded);
+  }
+
+  .colorWrapper {
+    padding: 1px;
+    border-radius: calc(var(--rounded) / 2);
+    border: 1px solid transparent;
+
+    &.selected {
+      border-color: var(--alt-text);
+    }
+
+    &:has(>.colorItem:focus), .colorItem:focus {
+      outline: none;
+      border-color: black;
+    }
+  }
+
+  .colorItem {
+    display: block;
+    margin: 0;
+    padding: 0;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: calc(var(--rounded) / 2);
+    cursor: pointer;
+    appearance: none;
+  }
+}

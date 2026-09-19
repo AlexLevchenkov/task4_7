@@ -1,0 +1,22 @@
+.link {
+  color: var(--main);
+  font: 700 0.9375rem / 1 var(--alt-font);
+  border-bottom: 1px solid transparent;
+  transition: color 0.3s ease, border-bottom-color 0.3s ease;
+
+  &.disabled {
+    color: var(--link-disabled);
+    cursor: auto;
+  }
+
+  &:not(.disabled) {
+    &:hover {
+      border-bottom-color: var(--main);
+    }
+
+    &:active {
+      color: var(--main-light);
+      border-bottom-color: var(--main-light);
+    }
+  }
+}
